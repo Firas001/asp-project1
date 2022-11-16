@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width:390px;
+        }
+    </style>
+    <link rel="stylesheet" href="device_menu_files/css3menu1/style.css" type="text/css" />
+    <style type="text/css">._css3m{display:none}
+    .auto-style2 {
+        text-align: center;
+    }
+    .auto-style3 {
+        text-align: center;
+        color: #FFFFFF;
+    }
+    .auto-style4 {
+        font-size: x-large;
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body style="background-color:#7e2d2d;margin-top:0px;
+margin-left:0px;margin-right:0px">
+     <form id="form1" runat="server">
+     <div id="header" style="width:100%;height:200px;
+background-color:#f5dddd; text-align: center;">
+         <asp:Image ID="Image1" runat="server" ImageUrl="~/images/examimg.png" />
+         </div>
+         <table align="center" class="auto-style1">
+             <tr>
+                 <td class="auto-style2"><ul id="css3menu1" class="topmenu">
+	<li class="switch"><label onclick="" for="css3menu-switcher"></label></li>
+	<li class="topfirst"><a href="#" style="height:22px;line-height:22px;">الشركات المصنعة</a></li>
+	<li class="topmenu"><a href="#" style="height:22px;line-height:22px;">بيانات الزبائن</a></li>
+	<li class="topmenu"><a href="#" style="height:22px;line-height:22px;">بيانات الأجهزة</a></li>
+	<li class="toplast"><a href="#" style="height:22px;line-height:22px;">الرئيسية</a></li>
+</ul>&nbsp;</td>
+             </tr>
+             <tr>
+                 <td>
+                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                     </asp:ContentPlaceHolder>
+                 </td>
+             </tr>
+         </table>
+     </form>
+     <p class="auto-style3">
+         &nbsp;</p>
+     <p class="auto-style3">
+         <strong><span class="auto-style4">تفضلو بزيارتنا</span></strong>
+     </p>
+</body>
+</html>
