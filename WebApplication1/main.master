@@ -1,0 +1,171 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="WebApplication1.main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>مشروع برمجة ويب 2</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/fontawesome-free-6.2.1-web/css/all.min.css"> 
+    
+
+    <style>
+        .col-centered{
+            margin: 0px auto;
+            float: none;
+        }
+
+        .margin-top-10p{
+            margin-top: 10px;
+        }
+
+        .margin-top-30p{
+            margin-top: 30px;
+        }
+
+
+        .rtl{
+            direction: rtl;
+        }
+
+        .project-bg-color{
+            background-color: #7e2d2d;
+        }
+
+        .project-bt-color{
+            background-color: #ddc8da;
+        }
+
+        .project-bt-color:hover{
+            background-color: #f5eead;
+        }
+
+        .bt-active, .bt-active:hover{
+            background-color: #f5eead
+        }
+
+        footer{
+            position:absolute;
+            bottom: -350px;
+            width: 100%;
+        }
+
+    </style>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="project-bg-color">
+
+
+
+    <!-- head -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="height: 500px;">
+            <img src="images/01.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" style="height: 500px;">
+            <img src="images/02.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" style="height: 500px;">
+            <img src="images/03.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+  
+
+    <!-- Custom page -->
+    <form id="form1" runat="server">
+
+                   <!-- buttons -->
+        <div class="margin-top-10p text-center">
+            <div class="btn-group" role="group">
+                <div class="btn-group btn-group-lg" role="group">
+                    <asp:Button ID="manufacturing_companies" runat="server" CssClass="btn project-bt-color" Text="الشركات المصنعة" OnClick="manufacturing_companies_click" />
+                    <asp:Button ID="customer_data" runat="server" CssClass="btn project-bt-color" Text="بيانات الزبائن" OnClick="customer_data_click" />
+                    <asp:Button ID="device_data" runat="server" CssClass="btn project-bt-color" Text="بيانات الأجهزة" OnClick="device_data_click" />
+                    <asp:Button ID="home_view_data" runat="server" CssClass="btn project-bt-color" Text="الرئيسية" OnClick="home_view_data_click" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+
+    <!-- End Custom page -->
+
+
+
+     <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-white" href="#!">برمجة ويب 2</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+      <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
