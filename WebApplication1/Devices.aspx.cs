@@ -33,7 +33,7 @@ namespace WebApplication1
 
                 cmd.Parameters.AddWithValue("@id", txt_id.Text);
                 cmd.Parameters.AddWithValue("@name", txt_name.Text);
-                cmd.Parameters.AddWithValue("@address", txt_add.Text);
+                cmd.Parameters.AddWithValue("@address", txt_name.Text);
                 cmd.Parameters.AddWithValue("@phone", txt_phone.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -63,7 +63,7 @@ namespace WebApplication1
 
                 cmd.Parameters.AddWithValue("@num", txt_id.Text.Trim());
                 cmd.Parameters.AddWithValue("@name", txt_name.Text.Trim());
-                cmd.Parameters.AddWithValue("@address", txt_add.Text.Trim());
+                cmd.Parameters.AddWithValue("@address", txt_name.Text.Trim());
                 cmd.Parameters.AddWithValue("@phone", txt_phone.Text.Trim());
 
                 cmd.ExecuteNonQuery();
@@ -93,7 +93,7 @@ namespace WebApplication1
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 txt_name.Text = dt.Rows[0]["customerName"].ToString(); //الاسم
-                txt_add.Text = dt.Rows[0]["Address1"].ToString(); //العنوان
+                txt_name.Text = dt.Rows[0]["Address1"].ToString(); //العنوان
                 txt_phone.Text = dt.Rows[0]["Phone"].ToString(); //رقم الهاتف
             }
             catch (Exception ex)

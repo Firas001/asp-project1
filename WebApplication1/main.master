@@ -12,6 +12,32 @@
     
 
     <style>
+        input.textbox[type="file"] { 
+          opacity: 0; /* make transparent */
+          z-index: -1; /* move under anything else */
+          position: absolute; /* don't let it take up space */
+        }
+
+        .custom-file-button {
+	        input[type="file"] {
+		        margin-left: -2px !important;
+
+		        &::-webkit-file-upload-button {
+			        display: none;
+		        }
+		        &::file-selector-button {
+			        display: none;
+		        }
+	        }
+
+	        &:hover {
+		        label {
+			        background-color: #dde0e3;
+			        cursor: pointer;
+		        }
+	        }
+        }
+
         .col-centered{
             margin: 0px auto;
             float: none;

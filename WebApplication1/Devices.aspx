@@ -9,32 +9,46 @@
     <!-- form -->
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4 col-centered">
-    <div class="input-group margin-top-10p" >
+    <div class="input-group margin-top-30p" >
 
-        <div class="input-group margin-top-10p" >
+        <div class="input-group mb-3" >
             <asp:TextBox type="text" ID="txt_id" runat="server" CssClass="form-control rtl"></asp:TextBox>
-            <span class="input-group-text"">رقم الزبون</span>
+            <span class="input-group-text"">رقم الجهاز</span>
         </div>
 
-        <div class="input-group margin-top-10p" >
+        <div class="input-group mb-3" >
             <asp:TextBox type="text" ID="txt_name" runat="server" CssClass="form-control rtl"></asp:TextBox>
+            <span class="input-group-text">اسم الجهاز</span>
+        </div>
+
+        <div class="input-group mb-3" >
+            <asp:DropDownList CssClass="form-select rtl" ID="DropDownList2" runat="server">
+                <asp:ListItem Text="D1" Value="d1" />
+                <asp:ListItem Text="D2" Value="d2" />
+            </asp:DropDownList>
             <span class="input-group-text">اسم الزبون</span>
         </div>
 
-        <div class="input-group margin-top-10p" >
-            <asp:TextBox type="text" ID="txt_add" runat="server" CssClass="form-control rtl"></asp:TextBox>
-            <span class="input-group-text">العنوان</span>
+        <div class="input-group mb-3" >
+            <asp:TextBox type="text" ID="txt_phone" runat="server" CssClass="form-control rtl"></asp:TextBox>
+            <span class="input-group-text">السعر</span>
         </div>
 
-        <div class="input-group margin-top-10p" >
-            <asp:TextBox type="text" ID="txt_phone" runat="server" CssClass="form-control rtl"></asp:TextBox>
-            <span class="input-group-text">رقم الهاتف</span>
-        </div>
+          <asp:FileUpload CssClass="form-control rtl mb-3" type="file" ID="FileUpload1" runat="server" />
+
+        <div class="input-group custom-file-button mb-3">
+            <asp:TextBox type="file" ID="inputGroupFile" runat="server" CssClass="form-control rtl"></asp:TextBox>
+		    <label class="input-group-text" for="inputGroupFile">أسم الجهاز</label>
+	    </div>
+
+
+
+        
 
     </div>
-        <div class="alert alert-success rtl text-center margin-top-10p" role="alert" id="alert" runat="server" Visible="false">
+        <div class="alert alert-success rtl text-center margin-top-10p" role="alert" id="alert" runat="server" Visible="true">
             <asp:Label ID="lmsg" runat="server" Text="رسالة تحذير"></asp:Label>
-        </div>
+       </div>
 
 </div>
 </div>
