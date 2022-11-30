@@ -1,0 +1,59 @@
+;;
+;; Domain:     lamah.com.
+;; Exported:   2022-11-07 11:05:40
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+lamah.com	3600	IN	SOA	lamah.com root.lamah.com 2041948574 7200 3600 86400 3600
+
+;; A Records
+cts.lamah.com.	1	IN	A	185.211.6.8
+lamah.com.	1	IN	A	185.211.6.8
+mail.cts.lamah.com.	1	IN	A	185.211.6.8
+mail.lamah.com.	1	IN	A	185.211.6.8
+www.lamah.com.	1	IN	A	185.211.6.8
+
+;; CNAME Records
+_domainconnect.lamah.com.	1	IN	CNAME	connect.domains.google.com.
+ftp.lamah.com.	3600	IN	CNAME	lamah.com.
+
+;; MX Records
+lamah.com.	3600	IN	MX	10 mail.lamah.com.
+lamah.com.	1	IN	MX	1 aspmx.l.google.com.
+lamah.com.	1	IN	MX	5 alt1.aspmx.l.google.com.
+lamah.com.	1	IN	MX	5 alt2.aspmx.l.google.com.
+lamah.com.	1	IN	MX	10 alt3.aspmx.l.googlemail.com.
+lamah.com.	1	IN	MX	10 alt4.aspmx.l.googlemail.com.
+
+;; NS Records
+lamah.com.	3600	IN	NS	ns2.lamah.com.
+lamah.com.	3600	IN	NS	ns1.lamah.com.
+
+;; TXT Records
+1350._domainkey.lamah.com.	1	IN	TXT	"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD3H73sku3B+7Ly+wAMJMp8BwyrxqXpYCY9O+UZccfQqU2fKdLk0b/b+fbTlKIA5EmgRC365dGUQbPmCKuD4RSmbhqbzwoMEVsvQfWzYtBVSiI/O/jBCG7i6v0QobXCCIQmH2du+LHSfTVYAmz4nPb34BHHixXFsHe7DvR2kzd38wIDAQAB"
+_dmarc.lamah.com.	1	IN	TXT	"v=DMARC1; p=none"
+_domainkey.lamah.com.	3600	IN	TXT	"t=y; o=~;"
+gool._domainkey.lamah.com.	1	IN	TXT	"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz8yTbUVTI3kqWDKqXgGYJ6PNPTVF45SAvHFg4Cssj3xhqOJyvov/NYfcHSM751jjPee4VAMvRV29PInBPhV7sG2wnxFWVgOdwr6XOm3OJxrpbEjhvUIVt7SuanqGRgAoiV0ykv12l50JWLOcVX0WLKdUyPBlIVT0onQQIs5yjIh0jCR4kADBt8RataHaTdtb8pQmmT0tlXWPhAH/J05g+d65Rv9V8z0Nh1jUGdtnMlN9Yj7yJIN+oxwdIceGN3J3RGzC1mN8s6AUsn/N9G8D2aKPqyssCPBA00pPVcSe7gJoVuETOtbi2vxBzJojm0tXvQZz3f9sZjazOVK4uE8V6wIDAQAB"
+lamah.com.	3600	IN	TXT	"v=spf1 a mx ip4:185.211.6.8 ~all"
+lamah.com.	1	IN	TXT	"google-site-verification=Sm_cEXZ4S701TXbjr5LDUN9m4x8e3N1o6Woo98LxWV0"
+lamah.com.	1	IN	TXT	"v=spf1 include:zcsend.net ~all"

@@ -12,11 +12,6 @@
     
 
     <style>
-        input.textbox[type="file"] { 
-          opacity: 0; /* make transparent */
-          z-index: -1; /* move under anything else */
-          position: absolute; /* don't let it take up space */
-        }
 
         .custom-file-button {
 	        input[type="file"] {
@@ -52,6 +47,11 @@
         }
 
 
+        .margin-bottom-50p{
+            margin-bottom: 50px;
+        }
+
+
         .rtl{
             direction: rtl;
         }
@@ -73,7 +73,7 @@
         }
 
         footer{
-            position:absolute;
+            position: relative;;
             bottom: -350px;
             width: 100%;
         }
@@ -120,7 +120,7 @@
     <form id="form1" runat="server">
 
                    <!-- buttons -->
-        <div class="margin-top-10p text-center">
+        <div class="margin-top-30p text-center">
             <div class="btn-group" role="group">
                 <div class="btn-group btn-group-lg" role="group">
                     <asp:Button ID="manufacturing_companies" runat="server" CssClass="btn project-bt-color" Text="الشركات المصنعة" OnClick="manufacturing_companies_click" />

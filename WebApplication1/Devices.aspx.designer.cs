@@ -15,58 +15,49 @@ namespace WebApplication1
     {
 
         /// <summary>
-        /// txt_id control.
+        /// device_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_id;
+        protected global::System.Web.UI.WebControls.TextBox device_id;
 
         /// <summary>
-        /// txt_name control.
+        /// device_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_name;
+        protected global::System.Web.UI.WebControls.FileUpload device_name;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// customer_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList customer_name;
 
         /// <summary>
-        /// txt_phone control.
+        /// date_text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_phone;
+        protected global::System.Web.UI.WebControls.TextBox date_text;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// cost_text control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
-        /// <summary>
-        /// inputGroupFile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputGroupFile;
+        protected global::System.Web.UI.WebControls.TextBox cost_text;
 
         /// <summary>
         /// alert control.
@@ -94,15 +85,6 @@ namespace WebApplication1
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bt_add;
-
-        /// <summary>
-        /// bt_view control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bt_view;
 
         /// <summary>
         /// bt_edit control.

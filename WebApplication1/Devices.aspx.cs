@@ -7,14 +7,22 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Globalization;
 
 namespace WebApplication1
 {
     public partial class Devices : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        static string global_filepath;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!IsPostBack)
+            {
+                fillCustomerValues();
+            }
 
         }
 
@@ -22,6 +30,20 @@ namespace WebApplication1
         {
             try
             {
+
+                string filepath;
+                string filename = Path.GetFileName(device_name.PostedFile.FileName);
+                if (filename == "" || filename == null)
+                {
+                    filepath = global_filepath;
+
+                }
+                else
+                {
+                    device_name.SaveAs(Server.MapPath("Files/" + filename));
+                    filepath = "~/Files/" + filename;
+                }
+
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
                 {
@@ -29,12 +51,13 @@ namespace WebApplication1
                 }
 
 
-                SqlCommand cmd = new SqlCommand("insert into customer(customerNum, customerName,Address1,Phone) values(@id,@name,@address, @phone)", con);
+                SqlCommand cmd = new SqlCommand("insert into Device(DeviceNum, DeviceName,customerNum,date1, cost) values(@id,@dname,@cname, @date, @cost)", con);
 
-                cmd.Parameters.AddWithValue("@id", txt_id.Text);
-                cmd.Parameters.AddWithValue("@name", txt_name.Text);
-                cmd.Parameters.AddWithValue("@address", txt_name.Text);
-                cmd.Parameters.AddWithValue("@phone", txt_phone.Text);
+                cmd.Parameters.AddWithValue("@id", device_id.Text);
+                cmd.Parameters.AddWithValue("@dname", filepath);
+                cmd.Parameters.AddWithValue("@cname", customer_name.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@date", date_text.Text);
+                cmd.Parameters.AddWithValue("@cost", cost_text.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -53,18 +76,36 @@ namespace WebApplication1
         {
             try
             {
+
+                string filepath;
+                string filename = Path.GetFileName(device_name.PostedFile.FileName);
+                if (filename == "" || filename == null)
+                {
+                    filepath = global_filepath;
+
+                }
+                else
+                {
+                    device_name.SaveAs(Server.MapPath("Files/" + filename));
+                    filepath = "~/Files/" + filename;
+                }
+
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("UPDATE customer SET customerName=@name, Address1=@address, Phone=@phone WHERE customerNum=@num", con);
+                SqlCommand cmd = new SqlCommand("UPDATE Device SET DeviceName = IsNull(@dname, DeviceName), customerNum=@cname," +
+                                                " date1=IsNull(@date, date1), cost = IsNull(@cost, cost) WHERE DeviceNum=@id", con);
 
-                cmd.Parameters.AddWithValue("@num", txt_id.Text.Trim());
-                cmd.Parameters.AddWithValue("@name", txt_name.Text.Trim());
-                cmd.Parameters.AddWithValue("@address", txt_name.Text.Trim());
-                cmd.Parameters.AddWithValue("@phone", txt_phone.Text.Trim());
+                //SqlCommand cmd = new SqlCommand("UPDATE Device SET DeviceName = @dname, customerNum=@cname, date1= @date, cost =@cost WHERE DeviceNum=@id", con);
+
+                cmd.Parameters.AddWithValue("@id", device_id.Text);
+                cmd.Parameters.AddWithValue("@dname", filepath);
+                cmd.Parameters.AddWithValue("@cname", customer_name.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@date", date_text.Text);
+                cmd.Parameters.AddWithValue("@cost", cost_text.Text);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -77,31 +118,7 @@ namespace WebApplication1
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
-        protected void bt_view_click(object sender, EventArgs e)
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                string query = "select * from customer where customerNum=" + txt_id.Text.Trim();
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                txt_name.Text = dt.Rows[0]["customerName"].ToString(); //الاسم
-                txt_name.Text = dt.Rows[0]["Address1"].ToString(); //العنوان
-                txt_phone.Text = dt.Rows[0]["Phone"].ToString(); //رقم الهاتف
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
-
-            }
-        }
+       
 
         protected void bt_delete_click(object sender, EventArgs e)
         {
@@ -114,8 +131,8 @@ namespace WebApplication1
                 }
 
 
-                SqlCommand cmd = new SqlCommand("delete customer where customerNum=@cunum", con);
-                cmd.Parameters.AddWithValue("@cunum", txt_id.Text);
+                SqlCommand cmd = new SqlCommand("delete Device where DeviceNum=@dnum", con);
+                cmd.Parameters.AddWithValue("@dnum", device_id.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -126,6 +143,35 @@ namespace WebApplication1
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }
+
+
+        void fillCustomerValues()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT customerNum, customerName from customer;", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                customer_name.DataSource = dt;
+
+                customer_name.DataTextField = "customerName";
+                customer_name.DataValueField = "customerNum";
+
+                customer_name.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
